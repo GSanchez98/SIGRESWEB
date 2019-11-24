@@ -10,9 +10,9 @@ app.use(express.json());
 
 
 // Importando las rutas
-const employeeRouters = require('./routes/employeeRoute')
+const rutaCliente = require('./routes/rutaCliente')
 //Route
-app.use('/employee',employeeRouters)
+app.use('/cliente',rutaCliente)
 
 // Probando la ruta
 app.use('/prueba', (req, res) => {
