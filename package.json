@@ -1,0 +1,21 @@
+{
+  "name": "sigresweb",
+  "version": "1.0.0",
+  "description": "Sistema de gestión de restaurantes, manipulación del módulo de controles de meseros.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSanchez98/SIGRESWEB.git"
+  },
+  "author": "Gimena Sánchez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GSanchez98/SIGRESWEB/issues"
+  },
+  "homepage": "https://github.com/GSanchez98/SIGRESWEB#readme"
+}
