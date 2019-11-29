@@ -8,6 +8,10 @@ const clienteController = require('../controllers/customerController')
 
 router.get('/list',clienteController.list );
 
+//Ruta para crear un nuevo cliente.
+router.post('/crear',clienteController.crear);
+
+
 
 router.get('/test',clienteController.test);
 
