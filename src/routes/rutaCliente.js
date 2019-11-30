@@ -11,19 +11,16 @@ router.get('/list',clienteController.list );
 //Ruta para crear un nuevo cliente.
 router.post('/crear',clienteController.crear);
 
+//Ruta para obtener un cliente.
 router.get('/get/:id',clienteController.get);
 
-
+//Ruta para el control de la conexión.
 router.get('/test',clienteController.test);
+
+//Ruta para actualizar un cliente.
 router.post('/update/:id',clienteController.update);
 
-//router.post('/delete',clienteController.delete);
-
-
-// router.get('/save', (req, res) => {
-
-//   res.json({status: 'Se ha almacenado con éxito'});
-
-// });
+//Ruta para eliminar un cliente.
+router.post('/delete',clienteController.delete);
 
 module.exports = router;
