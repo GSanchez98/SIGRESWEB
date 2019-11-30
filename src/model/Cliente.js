@@ -1,5 +1,6 @@
 //importando sequelize
 var Sequelize = require('sequelize');
+
 // importando la conexion a la base de datos
 var sequelize = require('./mysql');
 

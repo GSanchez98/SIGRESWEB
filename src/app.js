@@ -19,8 +19,10 @@ app.use((req, res, next) => {
 
 // Importando las rutas
 const rutaCliente = require('./routes/rutaCliente')
+const rutaArea= require('./routes/rutaArea')
 //Route
 app.use('/cliente',rutaCliente)
+app.use('/area',rutaArea)
 
 // Probando la ruta
 app.use('/prueba', (req, res) => {
