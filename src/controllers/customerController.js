@@ -20,47 +20,47 @@ sequelize.sync()
 
 // }
 
-// //Para poder actualizar los clientes
-// controller.update = async (req, res) => {
-//   // se obtiene el id del cliente
-//   const { id } = req.params;
-//   // parametro post
-//   const {rtn, nombre, direccion, telefono, correo } = req.body;
-//   // actualizar dato
-//   const data = await Employee.update({
-//     rtn: rtn,
-//     nombre:nombre,
-//     direccion:direccion,
-//     telefono:telefono,
-//     correo:correo
-//   },{
-//     where: { id: id}
-//   })
-//   .then( function (data){
-//     return data;
-//   })
-//   .catch(error => {
-//     return error;
-//   })
+//Para poder actualizar los clientes
+controller.update = async (req, res) => {
+  // se obtiene el id del cliente
+  const { id } = req.params;
+  // parametro post
+  const {rtn, nombre, direccion, telefono, correo } = req.body;
+  // actualizar dato
+  const data = await Cliente.update({
+    rtn: rtn,
+    nombre:nombre,
+    direccion:direccion,
+    telefono:telefono,
+    correo:correo
+  },{
+    where: { id: id}
+  })
+  .then( function (data){
+    return data;
+  })
+  .catch(error => {
+    return error;
+  })
 
-//   res.json({ success:true, data: data, message: "los datos del cliente han sido modificados con éxito"});
+  res.json({ success:true, data: data, message: "los datos del cliente han sido modificados con éxito"});
 
-// }
+}
 
-// //Para poder obtener los datos del cliente
-// controller.get = async (req, res) => {
-//   const { id } = req.params;
-//   const data = await Cliente.findAll({
-//     where: { id: id}
-//   })
-//   .then( function(data){
-//     return data;
-//   })
-//   .catch(error => {
-//     return error;
-//   })
-//   res.json({success:true, data:data});
-// }
+//Para poder obtener los datos del cliente
+controller.get = async (req, res) => {
+  const { id } = req.params;
+  const data = await Cliente.findAll({
+    where: { id: id}
+  })
+  .then( function(data){
+    return data;
+  })
+  .catch(error => {
+    return error;
+  })
+  res.json({success:true, data:data});
+}
 
 //Para generar el listado de los clientes
 controller.list = async (req, res) => {
