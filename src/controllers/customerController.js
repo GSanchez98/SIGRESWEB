@@ -82,6 +82,9 @@ controller.list = async (req, res) => {
 controller.crear = async (req,res) => {
   // data parametros enviados desde POST
   const {rtn, nombre, telefono, correo, direccion } = req.body;
+
+  console.log(req.body);
+  
   // create
   const data = await Cliente.create({
     rtn: rtn,

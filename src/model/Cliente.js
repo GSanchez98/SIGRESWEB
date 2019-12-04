@@ -5,7 +5,7 @@ var Sequelize = require('sequelize');
 var sequelize = require('./mysql');
 
 
-var nametable = 'cliente';
+var nametable = 'clientes';
 
 var Cliente = sequelize.define(nametable, {
   id: {

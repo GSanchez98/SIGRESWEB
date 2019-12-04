@@ -1,12 +1,14 @@
 //Importando los módulos de express
 const express = require('express');
+const bodyParser = require("body-parser");
 const app = express();
 
 //Configuraciones
 app.set('port', process.env.PORT || 4000);
 
 //Middlewares
-app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Configurar cabeceras y cors
 app.use((req, res, next) => {
