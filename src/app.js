@@ -1,5 +1,6 @@
 //Importando los módulos de express
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require("body-parser");
 const app = express();
 
@@ -8,6 +9,7 @@ app.set('port', process.env.PORT || 4000);
 
 //Middlewares
 app.use(bodyParser.json());
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Configurar cabeceras y cors
@@ -19,12 +21,18 @@ app.use((req, res, next) => {
   next();
 });
 
+
 // Importando las rutas
 const rutaCliente = require('./routes/rutaCliente')
 const rutaArea= require('./routes/rutaArea')
+const rutaUsuario= require('./routes/rutaUsuario')
+const rutaMesa= require('./routes/rutaMesa')
+
 //Route
 app.use('/cliente',rutaCliente)
 app.use('/area',rutaArea)
+app.use('/usuario',rutaUsuario)
+app.use('/mesas',rutaMesa)
 
 // Probando la ruta
 app.use('/prueba', (req, res) => {

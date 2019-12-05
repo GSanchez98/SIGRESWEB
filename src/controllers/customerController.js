@@ -14,7 +14,7 @@ controller.delete = async (req,res) => {
   const { id } = req.body;
   // delete sequelize
   const del = await Cliente.destroy({
-    where: { id: id }
+    where: { idregistro: id }
   })
   res.json({success:true, deleted:del, message:"El cliente ha sido eliminado con éxito"});
 
@@ -34,7 +34,7 @@ controller.update = async (req, res) => {
     telefono:telefono,
     correo:correo
   },{
-    where: { id: id}
+    where: { ididregistro: id}
   })
   .then( function (data){
     return data;
@@ -51,7 +51,7 @@ controller.update = async (req, res) => {
 controller.get = async (req, res) => {
   const { id } = req.params;
   const data = await Cliente.findAll({
-    where: { id: id}
+    where: { idregistro: id}
   })
   .then( function(data){
     return data;
