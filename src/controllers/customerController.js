@@ -34,7 +34,7 @@ controller.update = async (req, res) => {
     telefono:telefono,
     correo:correo
   },{
-    where: { ididregistro: id}
+    where: { idregistro: id}
   })
   .then( function (data){
     return data;
