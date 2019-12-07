@@ -27,12 +27,16 @@ const rutaCliente = require('./routes/rutaCliente')
 const rutaArea= require('./routes/rutaArea')
 const rutaUsuario= require('./routes/rutaUsuario')
 const rutaMesa= require('./routes/rutaMesa')
+const rutaProducto= require('./routes/rutaProducto')
+const rutaTproducto= require('./routes/rutaTProducto')
 
 //Route
 app.use('/cliente',rutaCliente)
 app.use('/area',rutaArea)
 app.use('/usuario',rutaUsuario)
 app.use('/mesas',rutaMesa)
+app.use('/producto',rutaProducto)
+app.use('/tproductos',rutaTproducto)
 
 // Probando la ruta
 app.use('/prueba', (req, res) => {
