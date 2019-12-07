@@ -115,33 +115,6 @@ controller.list = async ( req, res) => {
 
 }
 
-// controller.testdata = async ( req, res) => {
-  
-//   const response = await sequelize.sync().then(function() {
-
-//     // creación de un cliente
-//     Cliente.create({
-//       id: '3',
-//       rtn: '102030',
-//       nombre: 'xxxx',
-//       direccion: 'Hola',
-//       telefono: '77777',
-//       correo: 'Hola@gmail.com',
-//     });
-
-//     //llamar todos los datos del empleado
-//      const data =  Cliente.findAll()
-//      return data;
-//   })
-//   .catch(err => {
-//     return err;
-//   });
-//   res.json(response)
-
-// }
-
-
-
 controller.test = (req,res) => {
 
 const data = {

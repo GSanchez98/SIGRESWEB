@@ -7,7 +7,7 @@ var sequelize = require('../model/mysql');
 //para migrar por si no se tienen las tablas
 sequelize.sync()
 
-//Para manejar la creación de los clientes
+//Para manejar la creación de los usuarios
 controller.login = async (req,res) => {
   // data parametros enviados desde POST
   const {LoginUsuario, Contrasena} = req.body;
@@ -24,17 +24,18 @@ controller.login = async (req,res) => {
       }
   })
   .then(function(data){
+    console.log("Registro encontrado, se puede acceder")
     return data;
   })
   .catch(error =>{
-    console.log("Error : "+ error)
+    console.log("No existe tal registro dentro de la base de datos")
     return error;
     
   })
   // return res
   res.status(200).json({
     success: true,
-    message:"No existe tal registro",
+    message:"No existe tal registro dentro de la base de datos",
     data: data
   });
 }

@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-//Importando rutas.
+// Importando rutas.
 const mesas_x_area = require('../controllers/mesaController')
 
-//Para poder listar las areas actuales dentro del restaurante
-//Las areas se controlan dentro de las maquinas principales.
+// Para poder listar las mesas asignadas a un area en específico.
+// La asignación de las mesas dentro de un area determinada se 
+// hace directameente de la máquina principal.
 
 router.get('/list',mesas_x_area.list );
 router.get('/list/:id',mesas_x_area.getcodigoid);

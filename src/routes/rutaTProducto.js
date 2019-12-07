@@ -1,12 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-//Importando rutas.
+// Importando rutas.
 const TproductoController = require('../controllers/TproductoController')
 
-//Para poder listar las areas actuales dentro del restaurante
-//Las areas se controlan dentro de las maquinas principales.
-
+// Para poder listar las categorías de productos.
 router.get('/list',TproductoController.list );
 
 

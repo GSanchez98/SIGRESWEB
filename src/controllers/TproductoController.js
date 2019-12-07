@@ -8,7 +8,7 @@ var sequelize = require('../model/mysql');
 sequelize.sync()
 
 
-//Para generar el listado de las areas dentro del restaurante.
+//Para generar el listado de las categorías establecidas.
 controller.list = async (req, res) => {
 
   const data = await Tproducto.findAll()
