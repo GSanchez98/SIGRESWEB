@@ -29,5 +29,33 @@ controller.list = async ( req, res) => {
 
 }
 
+//Para generar el listado de las areas dentro del restaurante.
+controller.list = async (req, res) => {
+
+  // parametro post
+  const { id } = req.body;
+
+  const data = await Producto.findAll({
+    where: { TipoProducto: id }
+  })
+  .then(function(data){
+    return data;
+  })
+  .catch(error => {
+    return error;
+  }); 
+
+  res.json({success : true, data : data});
+
+}
+
+controller.list = async ( req, res) => {
+
+  const data = await Producto.findAll();
+  res.json(data)
+
+}
+
+
 
 module.exports = controller;

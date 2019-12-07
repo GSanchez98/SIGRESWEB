@@ -5,6 +5,7 @@ const router = express.Router();
 const productoController = require('../controllers/productoController')
 
 // Para poder listar los productos de una categoria en específico.
+router.get('/list',productoController.list );
 router.get('/list/:id',productoController.getTproducto);
 
 
