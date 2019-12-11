@@ -10,16 +10,13 @@ sequelize.sync()
 
 //Para manejar la creación de los clientes
 controller.crear = async (req,res) => {
- //const now= new Date(Date.parse(Object.now)).toUTCString();
- //const now2 = new Date.now;
-  //console.log(Date.now);
-  //var f = new Date.now()
-  //console.log( f.addHours(-6));
-  //console.log(Date.getTimezoneOffset());
+
   // create
+  var Moment = require('moment');
+  console.log(Moment().format('YYYY-MM-DD HH:mm:ss'));
   const data = await pedidosMesa.create({
     idMesero: 1,
-    //fechahora: Date.now(),
+    fecha: Moment().format('YYYY-MM-DD HH:mm:ss'),
     Estacion: 2,
     activo: 0,
     Modalidad: 'ME',

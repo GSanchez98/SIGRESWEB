@@ -1,6 +1,6 @@
 //importando sequelize
 var Sequelize = require('sequelize');
-
+var Moment = require('moment');
 // importando la conexion a la base de datos
 var sequelize = require('./mysql');
 
@@ -14,8 +14,8 @@ var Pedidos = sequelize.define(nametable, {
   },
   idMesero: Sequelize.INTEGER,
   fechahora:{
-    type: Sequelize.DATEONLY,
-    defaultValue: Sequelize.NOW,
+    type: Sequelize.DATE,
+    //defaultValue: ,
 
   },
   Estacion: Sequelize.INTEGER,
