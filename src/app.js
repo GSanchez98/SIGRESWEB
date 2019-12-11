@@ -29,6 +29,8 @@ const rutaUsuario= require('./routes/rutaUsuario')
 const rutaMesa= require('./routes/rutaMesa')
 const rutaProducto= require('./routes/rutaProducto')
 const rutaTproducto= require('./routes/rutaTProducto')
+const rutaPedido= require('./routes/rutaPedido')
+const rutaPedidomesa= require('./routes/rutaPedidoMesa')
 
 //Route
 app.use('/cliente',rutaCliente)
@@ -37,6 +39,8 @@ app.use('/usuario',rutaUsuario)
 app.use('/mesas',rutaMesa)
 app.use('/producto',rutaProducto)
 app.use('/tproductos',rutaTproducto)
+app.use('/pedido',rutaPedido)
+app.use('/pedidomesa',rutaPedidomesa)
 
 // Probando la ruta
 app.use('/prueba', (req, res) => {

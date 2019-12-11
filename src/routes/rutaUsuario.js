@@ -7,7 +7,7 @@ const router = express.Router();
 //Importando rutas.
 const usuarios = require('../controllers/usuarioController')
 
-router.post('/login',usuarios.login );
+router.post('/login',usuarios.login);
 // const cors = require('cors')
 // const jwt = require('jsonwebtoken')
 // const bcryptjs = require('bcryptjs')

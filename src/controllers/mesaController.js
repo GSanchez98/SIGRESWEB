@@ -7,6 +7,21 @@ var sequelize = require('../model/mysql');
 //para migrar por si no se tienen las tablas
 sequelize.sync()
 
+//Para poder obtener los datos de la mesa seleccionada
+controller.get = async (req, res) => {
+  const { id } = req.params;
+  const data = await Mesas.findAll({
+    where: { idregistro: id}
+  })
+  .then( function(data){
+    return data;
+  })
+  .catch(error => {
+    return error;
+  })
+  res.json({success:true, data:data});
+}
+
 //Para poder obtener las mesas asignadas a un area determinada
 controller.getcodigoid = async (req, res) => {
   const { id } = req.params;

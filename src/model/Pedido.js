@@ -5,17 +5,18 @@ var Sequelize = require('sequelize');
 var sequelize = require('./mysql');
 
 
-var nametable = 'mesas';
+var nametable = 'pruebadetalles';
 
 var Area = sequelize.define(nametable, {
-  idregistro: {
+  idPruebadetalle: {
     type: Sequelize.INTEGER,
     primaryKey: true,
   },
-  codigoArea:Sequelize.INTEGER,
-  mesa: Sequelize.STRING,
-  estado: Sequelize.STRING,
-
+  NombreProducto:Sequelize.STRING,
+  IdProducto:Sequelize.STRING,
+  PrecioProducto: Sequelize.DOUBLE,
+  CantidadProducto: Sequelize.INTEGER,
+  Mesa: Sequelize.INTEGER,
 },
 {
 	 timestamps: false,
