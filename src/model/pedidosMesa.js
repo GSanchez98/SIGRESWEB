@@ -15,8 +15,6 @@ var Pedidos = sequelize.define(nametable, {
   idMesero: Sequelize.INTEGER,
   fechahora:{
     type: Sequelize.DATE,
-    //defaultValue: ,
-
   },
   Estacion: Sequelize.INTEGER,
   activo: Sequelize.TINYINT,

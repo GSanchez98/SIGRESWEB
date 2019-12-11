@@ -2,10 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 //Importando rutas.
-const pedidosmesaController = require('../controllers/pedidosmesaController')
+const pedidosmesa2Controller = require('../controllers/pedidosmesa2Controller')
 
 //Ruta para crear un nuevo cliente.
-router.post('/crear',pedidosmesaController.crear);
-
+router.post('/crear',pedidosmesa2Controller.crear);
 
 module.exports = router;

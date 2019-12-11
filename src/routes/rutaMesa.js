@@ -14,4 +14,8 @@ router.get('/list/:id',mesas_x_area.getcodigoid);
 //Ruta para obtener un cliente.
 router.get('/get/:id',mesas_x_area.get);
 
+router.post('/update/:id',mesas_x_area.update);
+
+
+
 module.exports = router;

@@ -9,4 +9,6 @@ router.post('/crear',pedidoController.crear);
 
 router.get('/list',pedidoController.list);
 
+router.post('/delete/:id',pedidoController.delete);
+
 module.exports = router;

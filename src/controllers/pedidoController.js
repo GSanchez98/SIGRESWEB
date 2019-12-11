@@ -7,6 +7,18 @@ var sequelize = require('../model/mysql');
 //para migrar por si no se tienen las tablas
 sequelize.sync()
 
+//Para poder eliminar los clientes
+controller.delete = async (req,res) => {
+  // parametro post
+  const { Mesa } = req.body;
+  console.log(req.body);
+  // delete sequelize
+  const del = await Pedido.destroy({
+    where: { Mesa: Mesa }
+  })
+  res.json({success:true, deleted:del, message:"ADIOS A LA COMIDITA"});
+}
+
 //Para manejar la creación de los clientes
 controller.crear = async (req,res) => {
   // data parametros enviados desde POST

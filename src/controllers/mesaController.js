@@ -7,6 +7,8 @@ var sequelize = require('../model/mysql');
 //para migrar por si no se tienen las tablas
 sequelize.sync()
 
+
+
 //Para poder obtener los datos de la mesa seleccionada
 controller.get = async (req, res) => {
   const { id } = req.params;
@@ -61,6 +63,29 @@ controller.list = async ( req, res) => {
 
   const data = await Mesas.findAll();
   res.json(data)
+
+}
+
+//Para poder actualizar los clientes
+controller.update = async (req, res) => {
+  // se obtiene el id del cliente
+  const { id } = req.params;
+  // parametro post
+  const { estado } = req.body;
+  // actualizar dato
+  const data = await Mesas.update({
+    estado: estado,
+  },{
+    where: { idregistro: id}
+  })
+  .then( function (data){
+    return data;
+  })
+  .catch(error => {
+    return error;
+  })
+
+  res.json({ success:true, data: data, message: "YA SE CAMBIO WIIIIIIIII"});
 
 }
 

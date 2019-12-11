@@ -11,15 +11,17 @@ sequelize.sync()
 //Para manejar la creación de los clientes
 controller.crear = async (req,res) => {
 
+  const {idMesero} = req.body;
   // create
   var Moment = require('moment');
-  console.log(Moment().format('YYYY-MM-DD HH:mm:ss'));
+  console.log(Moment().subtract(6, 'hour').format('YYYY-MM-DD HH:mm:ss'));
   const data = await pedidosMesa.create({
-    idMesero: 1,
-    fecha: Moment().format('YYYY-MM-DD HH:mm:ss'),
+    idMesero: idMesero,
+    fechahora: Moment().subtract(6, 'hour').format('YYYY-MM-DD HH:mm:ss'),
     Estacion: 2,
     activo: 0,
     Modalidad: 'ME',
+    
   })
   .then(function(data){
     return data;
