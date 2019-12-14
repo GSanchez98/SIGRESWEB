@@ -8,7 +8,7 @@ var sequelize = require('../model/mysql');
 sequelize.sync()
 
 
-//Para manejar la creación de los clientes
+//Para manejar la creación de los pedidos de una mesa.
 controller.crear = async (req,res) => {
 
   const {idMesero} = req.body;
@@ -33,7 +33,7 @@ controller.crear = async (req,res) => {
   // return res
   res.status(200).json({
     success: true,
-    message:"El pedido se ha almacenado con éxito.",
+    message:"PEDIDO EXITOSO",
     data: data
   });
 }

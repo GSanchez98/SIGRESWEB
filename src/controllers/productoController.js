@@ -56,6 +56,4 @@ controller.list = async ( req, res) => {
 
 }
 
-
-
 module.exports = controller;

@@ -7,7 +7,7 @@ var sequelize = require('../model/mysql');
 //para migrar por si no se tienen las tablas
 sequelize.sync()
 
-//Para poder eliminar los clientes
+//Para poder eliminar los pedidos
 controller.delete = async (req,res) => {
   // parametro post
   const { Mesa } = req.body;
@@ -16,17 +16,17 @@ controller.delete = async (req,res) => {
   const del = await Pedido.destroy({
     where: { Mesa: Mesa }
   })
-  res.json({success:true, deleted:del, message:"ADIOS A LA COMIDITA"});
+  res.json({success:true, deleted:del, message:"SE ELIMINÓ LA ORDEN ASIGNASA A LA MESA."});
 }
 
-//Para manejar la creación de los clientes
+//Para manejar la creación de los pedido
 controller.crear = async (req,res) => {
   // data parametros enviados desde POST
   const {idPruebadetalle, IdProducto, NombreProducto, PrecioProducto, CantidadProducto, Mesa } = req.body;
 
   console.log(req.body);
 
-  //Para generar el listado de las areas dentro del restaurante.
+  //Para generar el listado de los pedidos dentro del restaurante.
 controller.list = async (req, res) => {
   
     const data = await Pedido.findAll()
@@ -61,13 +61,13 @@ controller.list = async (req, res) => {
     return data;
   })
   .catch(error =>{
-    console.log("Error : "+error)
+    console.log("ERROR : "+error)
     return error;
   })
   // return res
   res.status(200).json({
     success: true,
-    message:"Agregado.",
+    message:"SE HA REALIZADO CON EXITO SU ORDEN.",
     data: data
   });
 }

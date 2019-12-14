@@ -5,18 +5,18 @@ var Sequelize = require('sequelize');
 var sequelize = require('./mysql');
 
 
-var nametable = 'usuario';
+var nametable = 'usuarios';
 
 var Usuario = sequelize.define(nametable, {
   idregistro: {
     type: Sequelize.INTEGER,
     primaryKey: true,
   },
-  loginUsuario: Sequelize.STRING,
+  LoginUsuario: Sequelize.STRING,
   empleado: Sequelize.INTEGER,
-  contrasena: Sequelize.STRING,
-  accesoTotal: Sequelize.TINYINT,
-  habilitado: Sequelize.TINYINT,
+  Contrasena: Sequelize.STRING,
+  AccesoTotal: Sequelize.TINYINT,
+  Habilitado: Sequelize.TINYINT,
 },
 {
 	 timestamps: false,

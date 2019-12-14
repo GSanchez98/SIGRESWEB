@@ -66,7 +66,7 @@ controller.list = async ( req, res) => {
 
 }
 
-//Para poder actualizar los clientes
+//Para poder actualizar el estado de las mesas.
 controller.update = async (req, res) => {
   // se obtiene el id del cliente
   const { id } = req.params;
@@ -85,7 +85,7 @@ controller.update = async (req, res) => {
     return error;
   })
 
-  res.json({ success:true, data: data, message: "YA SE CAMBIO WIIIIIIIII"});
+  res.json({ success:true, data: data, message: "EL ESTADO DE LA MESA HA SIDO MODIFICADO EXITOSAMENTE"});
 
 }
 

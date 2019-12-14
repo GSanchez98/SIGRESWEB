@@ -9,13 +9,14 @@ var sequelize = require('../model/mysql');
 sequelize.sync()
 
 
-//Para manejar la creación de los clientes
+//Para manejar la creación de los detalles especificos de un pedido
 controller.crear = async (req,res) => {
 // data parametros enviados desde POST
 const {idmesa, nombrecuenta} = req.body;
 
 console.log(req.body);
 
+//Se obtiene el número de pedido.
 const data1 = await pedidosMesa.findOne({
   attributes: ['NumeroPedido'],
   limit: 1,
@@ -42,7 +43,7 @@ const data = await pedidosMesa2.create({
 // return res
 res.status(200).json({
   success: true,
-  message:"El pedido se ha realizado con exito con éxito.",
+  message:"EL PEDIDO SE HA REALIZADO EXITOSAMENTE.",
   data: data
 });
 }

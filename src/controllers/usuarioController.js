@@ -1,3 +1,8 @@
+const express = require("express");
+const router = express.Router();
+const bcrypt = require("bcryptjs");
+
+
 const controller = {}
 
 var Usuario = require('../model/Usuario');
@@ -16,28 +21,25 @@ controller.login = async (req,res) => {
   
   // create
   const data = await Usuario.findOne({
-    LoginUsuario: LoginUsuario,
-    Contrasena: Contrasena,
+    
     where: {
-      LoginUsuario: req.body.LoginUsuario,
-      contrasena: req.body.Contrasena
+      LoginUsuario: LoginUsuario,
+      Contrasena: Contrasena,
       }
   })
   .then(function(data){
-    console.log("Registro encontrado, se puede acceder")
+  console.log("Registro encontrado, se puede acceder")
     return data;
   })
   .catch(error =>{
-    console.log("No existe tal registro dentro de la base de datos")
-    return error;
-    
-  })
-  // return res
+     // return res
   res.status(200).json({
     success: true,
-    message:"No existe tal registro dentro de la base de datos",
+    message:"no existe dato",
     data: data
   });
+    
+  })
 }
 
 module.exports = controller;

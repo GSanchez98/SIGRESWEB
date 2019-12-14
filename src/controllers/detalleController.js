@@ -10,7 +10,7 @@ var sequelize = require('../model/mysql');
 sequelize.sync()
 
 
-//Para manejar la creación de los clientes
+//Para manejar la creación de los detalles
 controller.creardetalle = async (req,res) => {
 
 //Obtencion del Id para almacenar el Numero de pedido
@@ -38,13 +38,13 @@ const data = await detalle.create({
   return data;
 })
 .catch(error =>{
-  console.log("Error : "+error)
+  console.log("ERROR : "+error)
   return error;
 })
 // return res
 res.status(200).json({
   success: true,
-  message:"SIIIIIIIIIIIIIIIII",
+  message:"REGISTRO SE REALIZÓ CON ÉXITO",
   data: data
 });
 }

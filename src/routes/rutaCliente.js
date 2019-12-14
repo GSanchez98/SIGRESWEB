@@ -4,8 +4,7 @@ const router = express.Router();
 //Importando rutas.
 const clienteController = require('../controllers/customerController')
 
-// router.get('/testdata',clienteController.testdata );
-
+//Ruta para listar los clientes.
 router.get('/list',clienteController.list );
 
 //Ruta para crear un nuevo cliente.
