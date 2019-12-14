@@ -1,7 +1,14 @@
-const express = require("express");
-const router = express.Router();
-const bcrypt = require("bcryptjs");
+const jwt = require('jsonwebtoken');
 
+const passportJWT = require('passport-jwt');
+
+// ExtractJwt para ayudar a extraer el token
+let ExtractJwt = passportJWT.ExtractJwt;
+
+// JwtStrategy, que es la estrategia para la autenticación
+let jwtOptions = {};
+jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+jwtOptions.secretOrKey = "GMN";
 
 const controller = {}
 
@@ -19,27 +26,30 @@ controller.login = async (req,res) => {
 
   console.log(req.body);
   
-  // create
-  const data = await Usuario.findOne({
+  if (LoginUsuario && Contrasena) {
+    // obtenemos al usuario con el nombre y guardamos la promesa resuelta
+    let Usuario = await obtenerUsuario({ LoginUsuario });
     
-    where: {
-      LoginUsuario: LoginUsuario,
-      Contrasena: Contrasena,
-      }
-  })
-  .then(function(data){
-  console.log("Registro encontrado, se puede acceder")
-    return data;
-  })
-  .catch(error =>{
-     // return res
-  res.status(200).json({
-    success: true,
-    message:"no existe dato",
-    data: data
-  });
-    
-  })
+    if (!Usuario) {
+      res.status(401).json({ 
+        msg: "El usuario que ingreso, no se encuentra registrado.", Usuario
+      });
+    }else if (Usuario.Contrasena === Contrasena) {
+      let obtenerId = { idregistro: Usuario.idregistro };
+      let token = jwt.sign(obtenerId, jwtOptions.secretOrKey);
+      res.json({ token: token });
+    } else {
+      res.status(401).json({ 
+        msg: "La contraseña ingresada es incorrecta."
+        });
+    }
+  }
 }
+
+const obtenerUsuario = async obj => {
+  return await Usuario.findOne({
+    where: obj,
+  });
+};
 
 module.exports = controller;

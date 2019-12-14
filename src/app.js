@@ -2,7 +2,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require("body-parser");
-const moment = require("moment");
+var session = require("express-session");
 const app = express();
 
 //Configuraciones
