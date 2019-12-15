@@ -48,14 +48,19 @@ controller.login = async (req,res) => {
       // obtener el login del usuario.
       let obtenerUsuario = { LoginUsuario: Usuario.LoginUsuario };
       let Obtencionnombre = { NombreEmpleado: Empleado.NombreEmpleado};
+      let datostoken={idregistro : obtenerIdUsuario.idregistro,
+        LoginUsuario : obtenerUsuario.LoginUsuario,
+        nombreEmpleado : nombreEmpleado.nombre};
 
-      let token = jwt.sign(obtenerIdUsuario, jwtOptions.secretOrKey);
+      let token = jwt.sign(datostoken, jwtOptions.secretOrKey);
+      console.log("TOKEN : "+token)
+      console.log("TOKEN : "+idregistro)
+      console.log("TOKEN : "+LoginUsuario)
+      console.log("TOKEN : "+nombreEmpleado)
+ 
+
       res.json({ 
-        token: token,
-        obtenerIdUsuario : obtenerIdUsuario,
-        obtenerUsuario : obtenerUsuario,
-        nombreEmpleado : nombreEmpleado,
-        obtenerEmpleado :obtenerEmpleado
+        token: token
       });
     } else {
       res.status(401).json({ 
