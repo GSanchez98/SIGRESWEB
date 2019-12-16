@@ -43,9 +43,7 @@ controller.list = async (req, res) => {
   controller.list = async ( req, res) => {
     const data = await Pedido.findAll();
     res.json(data)
-  
   }
-  
   const data = await Pedido.create({
     idPruebadetalle: idPruebadetalle,
     IdProducto:IdProducto,

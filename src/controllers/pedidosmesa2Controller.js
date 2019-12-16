@@ -3,7 +3,7 @@ const controller = {}
 var pedidosMesa2 = require('../model/pedidosMesa2');
 var pedidosMesa = require('../model/pedidosMesa');
 var sequelize = require('../model/mysql');
-
+var Moment = require('moment');
 
 //para migrar por si no se tienen las tablas
 sequelize.sync()
@@ -46,6 +46,22 @@ res.status(200).json({
   message:"EL PEDIDO SE HA REALIZADO EXITOSAMENTE.",
   data: data
 });
+}
+
+controller.list = async (req, res) => {
+  const fecha = Moment().subtract(6, 'hour').format('YYYY-MM-DD HH:mm:ss')
+  const data = await pedidosMesa2.findAll()
+  .then(function(data){
+    
+
+    return data;
+  })
+  .catch(error => {
+    return error;
+  }); 
+  
+  res.json({success : true, data : fecha});
+  console.log("aqiiiiiiiiii"+fecha)
 }
 
 controller.list = async ( req, res) => {
