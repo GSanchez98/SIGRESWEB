@@ -1,4 +1,4 @@
-//Importando los módulos de express
+//Importando los módulos
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require("body-parser");

@@ -29,7 +29,7 @@ controller.list = async ( req, res) => {
 
 }
 
-//Para generar el listado de las areas dentro del restaurante.
+//Para generar el listado de los productos del restaurante.
 controller.list = async (req, res) => {
 
   // parametro post

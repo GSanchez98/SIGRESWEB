@@ -33,7 +33,6 @@ controller.login = async (req,res) => {
     // obtenemos al usuario con el nombre y guardamos la promesa resuelta
     let Usuario = await obtenerUsuario({ LoginUsuario });
     
-
     if (!Usuario) {
       res.status(401).json({ 
         msg: "El usuario que ingreso, no se encuentra registrado.", Usuario
@@ -43,7 +42,11 @@ controller.login = async (req,res) => {
       let Empleado = await obtenerEmpleado({ idregistro });
       // obtener el id del usuario con el id del empleado.
       let obtenerIdUsuario = { idregistro: Usuario.idregistro };
-      let nombreEmpleado = { nombre: Empleado.NombreEmpleado +' '+ Empleado.ApellidoEmpleado};
+      let nombreEmpleado = { nombre: Empleado.NombreEmpleado};
+
+      // Usar esta linea en reemplazo de la linea 45 en caso que se desee que aparezca el nombre
+      // completo de un usuario:
+      // let nombreEmpleado = { nombre: Empleado.NombreEmpleado +' '+ Empleado.ApellidoEmpleado};
 
       // obtener el login del usuario.
       let obtenerUsuario = { LoginUsuario: Usuario.LoginUsuario };
@@ -53,11 +56,12 @@ controller.login = async (req,res) => {
         nombreEmpleado : nombreEmpleado.nombre};
 
       let token = jwt.sign(datostoken, jwtOptions.secretOrKey);
+
+      // Vista para observar los datos
       console.log("TOKEN : "+token)
-      console.log("TOKEN : "+idregistro)
-      console.log("TOKEN : "+LoginUsuario)
-      console.log("TOKEN : "+nombreEmpleado)
- 
+      console.log("REGISTRO : "+idregistro)
+      console.log("NICKNAME : "+LoginUsuario)
+      console.log("EMPLEADO : "+nombreEmpleado)
 
       res.json({ 
         token: token
@@ -73,7 +77,9 @@ controller.login = async (req,res) => {
 //Obtencion del Id para almacenar el Numero de pedido
 const obtenerEmpleado = async obj => {
   return await Empleado.findOne({
-    attributes: ['NombreEmpleado', 'ApellidoEmpleado'],
+    attributes: ['NombreEmpleado'],
+    // En caso se quiera aplicar en nombre completo del empleado
+    // attributes: ['NombreEmpleado', 'ApellidoEmpleado'],
     where: obj,  
   });
 };

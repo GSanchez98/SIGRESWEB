@@ -24,7 +24,7 @@ controller.get = async (req, res) => {
   res.json({success:true, data:data});
 }
 
-//Para poder obtener las mesas asignadas a un area determinada
+//Para poder obtener el codigo de la mesa seleccionada
 controller.getcodigoid = async (req, res) => {
   const { id } = req.params;
   const data = await Mesas.findAll({
@@ -39,7 +39,7 @@ controller.getcodigoid = async (req, res) => {
   res.json({success:true, data:data});
 }
 
-//Para generar el listado de las areas dentro del restaurante.
+//Para generar el listado de las mesas en un área.
 controller.list = async (req, res) => {
 
   // parametro post
@@ -68,9 +68,8 @@ controller.list = async ( req, res) => {
 
 //Para poder actualizar el estado de las mesas.
 controller.update = async (req, res) => {
-  // se obtiene el id del cliente
-  const { id } = req.params;
   // parametro post
+  const { id } = req.params;
   const { estado } = req.body;
   // actualizar dato
   const data = await Mesas.update({

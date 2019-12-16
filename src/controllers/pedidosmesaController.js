@@ -10,7 +10,6 @@ sequelize.sync()
 
 //Para manejar la creación de los pedidos de una mesa.
 controller.crear = async (req,res) => {
-
   const {idMesero} = req.body;
   // create
   var Moment = require('moment');
@@ -18,10 +17,9 @@ controller.crear = async (req,res) => {
   const data = await pedidosMesa.create({
     idMesero: idMesero,
     fechahora: Moment().subtract(6, 'hour').format('YYYY-MM-DD HH:mm:ss'),
-    Estacion: 2,
-    activo: 0,
+    Estacion: 3,
+    activo: 1,
     Modalidad: 'ME',
-    
   })
   .then(function(data){
     return data;
@@ -37,6 +35,7 @@ controller.crear = async (req,res) => {
     data: data
   });
 }
+
 
 controller.list = async ( req, res) => {
 

@@ -16,7 +16,7 @@ controller.delete = async (req,res) => {
   const del = await Pedido.destroy({
     where: { Mesa: Mesa }
   })
-  res.json({success:true, deleted:del, message:"SE ELIMINÓ LA ORDEN ASIGNASA A LA MESA."});
+  res.json({success:true, deleted:del, message:"SE ELIMINÓ LA ORDEN DE LA MESA."});
 }
 
 //Para manejar la creación de los pedido
@@ -28,7 +28,7 @@ controller.crear = async (req,res) => {
 
   //Para generar el listado de los pedidos dentro del restaurante.
 controller.list = async (req, res) => {
-  
+
     const data = await Pedido.findAll()
     .then(function(data){
       return data;
@@ -36,19 +36,16 @@ controller.list = async (req, res) => {
     .catch(error => {
       return error;
     }); 
-  
     res.json({success : true, data : data});
   
   }
   
   controller.list = async ( req, res) => {
-  
     const data = await Pedido.findAll();
     res.json(data)
   
   }
   
-  // create
   const data = await Pedido.create({
     idPruebadetalle: idPruebadetalle,
     IdProducto:IdProducto,
